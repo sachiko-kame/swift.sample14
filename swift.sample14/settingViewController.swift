@@ -28,7 +28,7 @@ class settingViewController: UIViewController, UITableViewDelegate, UITableViewD
     myTableView.delegate = self
         
     addBtn = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(settingViewController.back))
-        self.navigationItem.leftBarButtonItem = addBtn
+        self.navigationItem.rightBarButtonItem = addBtn
         
     let viewA = UIView()
     myTableView.tableFooterView = viewA
