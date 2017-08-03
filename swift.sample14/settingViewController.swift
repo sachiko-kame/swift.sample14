@@ -75,7 +75,15 @@ class settingViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             print("3")
             let alert = UIAlertController(title: "タイトル", message: "sampleです。", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "了解", style: .default, handler: nil)
+            let buttonOk = UIAlertAction(title: "了解", style: .default, handler: {
+                (action: UIAlertAction!) in
+                print("アクション１をタップした時の処理")
+            })
+            let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+                (action: UIAlertAction!) in
+                print("キャンセルをタップした時の処理")
+            })
+            alert.addAction(cancel)
             alert.addAction(buttonOk)
             present(alert, animated: true, completion: nil)
 
