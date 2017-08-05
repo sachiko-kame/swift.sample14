@@ -13,10 +13,24 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
     private let myItems: NSArray = ["sample0🐰", "sampl1🐰", "sampl2🐰"]
     private let myItems2: NSArray = ["Sample0🐢", "Sample1🐢", "Sample2🐢", "Sample3🐢"]
     private let SecItems: NSArray = ["セクション1", "セクション2"]
+    
+    /// 画像のファイル名
+    let imageNames = ["set.png", "set.png", "set.png"]
+    
+    /// 画像のタイトル
+    let imageTitles = ["sample0🐰", "sample0🐰", "sample0🐰"]
+    
+    /// 画像の説明
+    let imageDescriptions = [
+        "設定します0",
+        "設定します0",
+        "設定します0"
+    ]
     private var myTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.title = "初期画面"
         myTableView = UITableView()
         myTableView.frame = UIScreen.main.bounds
@@ -45,8 +59,13 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
      Cellの総数を返すデータソースメソッド.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return myItems.count
+        switch section {
+        case 0:
+            return imageNames.count
+        default:
+            return myItems2.count
+
+        }
     }
     
     //タップされた時に呼ばれる
@@ -85,31 +104,31 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // 再利用するCellを取得する.
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        
-        // 文字色変更
-        cell.textLabel?.textColor = UIColor.darkGray
-        // 文字サイズ変更
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        
-        //セルのアクセサリを設定
-        cell.accessoryType = .disclosureIndicator
-        
-        if indexPath.section == 0 {
-            cell.textLabel?.text = "\(myItems[indexPath.row])"
-        } else if indexPath.section == 1 {
+        switch indexPath.section {
+        case 0:
+            tableView.register(cellType: SampleTableViewCell.self)
+            tableView.register(cellTypes: [SampleTableViewCell.self, SampleTableViewCell.self])
+            
+            let cell = tableView.dequeueReusableCell(with: SampleTableViewCell.self, for: indexPath)
+            cell.setCell(imageName: imageNames[indexPath.row], titleText: imageTitles[indexPath.row], descriptionText: imageDescriptions[indexPath.row])
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
             cell.textLabel?.text = "\(myItems2[indexPath.row])"
+            return cell
         }
-        
-        return cell
     }
     
     /*
      セルの高さを設定
      */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        switch indexPath.section {
+        case 0:
+            return 80
+        default:
+            return 50
+        }
     }
     
     /*
@@ -126,7 +145,32 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(SecItems[section])"
     }
+}
+
+extension NSObject {
+    class var className: String {
+        return String(describing: self)
+    }
     
+    var className: String {
+        return type(of: self).className
+    }
+}
 
 
+
+extension UITableView {
+    func register<T: UITableViewCell>(cellType: T.Type) {
+        let className = cellType.className
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forCellReuseIdentifier: className)
+    }
+    
+    func register<T: UITableViewCell>(cellTypes: [T.Type]) {
+        cellTypes.forEach { register(cellType: $0) }
+    }
+    
+    func dequeueReusableCell<T: UITableViewCell>(with type: T.Type, for indexPath: IndexPath) -> T {
+        return self.dequeueReusableCell(withIdentifier: type.className, for: indexPath) as! T
+    }
 }
