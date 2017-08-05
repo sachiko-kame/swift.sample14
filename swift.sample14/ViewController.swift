@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var addBtn: UIBarButtonItem!
     
-    private let myItems: NSArray = ["sample1", "sample2", "sample3"]
+    private let myItems: NSArray = ["sample0🐩", "sampl1🐩", "sampl2🐩"]
+    private let myItems2: NSArray = ["Sample0🐱", "Sample1🐱", "Sample2🐱", "Sample3🐱"]
     private let SecItems: NSArray = ["セクション1", "セクション2"]
     private var myTableView: UITableView!
     
@@ -62,22 +63,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      Cellの総数を返すデータソースメソッド.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return myItems.count
+        switch section {
+        case 0:
+            return myItems.count
+        default:
+            return myItems2.count
+        }
     }
     
     //タップされた時に呼ばれる
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         table.deselectRow(at: indexPath, animated: true)
-        switch  indexPath.row{
+        
+        switch indexPath.section {
         case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
+            switch  indexPath.row{
+            case 0:
+                print("0🐩")
+            case 1:
+                print("1🐩")
+            default:
+                print("3🐩")
+            }
         default:
-            print("3")
+            switch  indexPath.row{
+            case 0:
+                print("0🐱")
+            case 1:
+                print("1🐱")
+            case 2:
+                print("2🐱")
+            default:
+                print("3🐱")
+            }
+
         }
         
         
@@ -99,9 +118,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //セルのアクセサリを設定
         cell.accessoryType = .disclosureIndicator
         
-        // Cellに値を設定する.
-        cell.textLabel!.text = "\(myItems[indexPath.row])"
-        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "\(myItems[indexPath.row])"
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "\(myItems2[indexPath.row])"
+        }
+       
         return cell
     }
     
