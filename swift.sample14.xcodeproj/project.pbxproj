@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		84515B3E1F358CA3000BB79F /* sample0ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample0ViewController.swift; sourceTree = "<group>"; };
+		84515B3E1F358CA3000BB79F /* sample0ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample0ViewController.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		84515B3F1F358CA3000BB79F /* sample0ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sample0ViewController.xib; sourceTree = "<group>"; };
 		84515B431F358CF8000BB79F /* sample1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample1ViewController.swift; sourceTree = "<group>"; };
 		84515B441F358CF8000BB79F /* sample1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sample1ViewController.xib; sourceTree = "<group>"; };
