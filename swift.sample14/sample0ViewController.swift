@@ -31,7 +31,7 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "初期画面"
+        self.title = "sample0の画面"
         myTableView = UITableView()
         myTableView.frame = UIScreen.main.bounds
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
