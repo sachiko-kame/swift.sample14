@@ -65,28 +65,36 @@ class settingViewController: UIViewController, UITableViewDelegate, UITableViewD
     //タップされた時に呼ばれる
     func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
         table.deselectRow(at: indexPath, animated: true)
-        switch  indexPath.row{
+        
+        switch indexPath.section {
         case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
+            switch  indexPath.row{
+            case 0:
+                print("個人情報")
+            case 1:
+                print("ログアウト")
+            case 2:
+                print("退会")
+            case 3:
+                print("利用規約")
+            default:
+                print("お問い合わせ")
+                let alert = UIAlertController(title: "お問い合わせ", message: "大変申し訳ございません。現在お問い合わせできません。", preferredStyle: .alert)
+                let buttonOk = UIAlertAction(title: "了解", style: .default, handler: {
+                    (action: UIAlertAction!) in
+                    print("了解!")
+                })
+                let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+                    (action: UIAlertAction!) in
+                    print("キャンセル!")
+                })
+                alert.addAction(cancel)
+                alert.addAction(buttonOk)
+                present(alert, animated: true, completion: nil)
+                
+            }
         default:
-            print("3")
-            let alert = UIAlertController(title: "タイトル", message: "sampleです。", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "了解", style: .default, handler: {
-                (action: UIAlertAction!) in
-                print("アクション１をタップした時の処理")
-            })
-            let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
-                (action: UIAlertAction!) in
-                print("キャンセルをタップした時の処理")
-            })
-            alert.addAction(cancel)
-            alert.addAction(buttonOk)
-            present(alert, animated: true, completion: nil)
-
+            print("未設定")
         }
         
 
