@@ -80,10 +80,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch  indexPath.row{
             case 0:
                 print("0🐩")
+                let Sample0ViewController = sample0ViewController()
+                self.navigationController?.pushViewController(Sample0ViewController, animated: true)
             case 1:
                 print("1🐩")
+                let Sample1ViewController = sample1ViewController()
+                self.navigationController?.pushViewController(Sample1ViewController, animated: true)
             default:
-                print("3🐩")
+                let Sample2ViewController = sample2ViewController()
+                self.navigationController?.pushViewController(Sample2ViewController, animated: true)
             }
         default:
             switch  indexPath.row{
