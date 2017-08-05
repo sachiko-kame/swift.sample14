@@ -15,6 +15,10 @@
 		84515B4A1F358D11000BB79F /* sample2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84515B481F358D11000BB79F /* sample2ViewController.xib */; };
 		84515B4E1F3592C4000BB79F /* SampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84515B4C1F3592C4000BB79F /* SampleTableViewCell.swift */; };
 		84515B4F1F3592C4000BB79F /* SampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84515B4D1F3592C4000BB79F /* SampleTableViewCell.xib */; };
+		84515B551F35D6A9000BB79F /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84515B531F35D6A9000BB79F /* FirstTabViewController.swift */; };
+		84515B561F35D6A9000BB79F /* FirstTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84515B541F35D6A9000BB79F /* FirstTabViewController.xib */; };
+		84515B591F35D6BD000BB79F /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84515B571F35D6BD000BB79F /* SecondTabViewController.swift */; };
+		84515B5A1F35D6BD000BB79F /* SecondTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84515B581F35D6BD000BB79F /* SecondTabViewController.xib */; };
 		8479C71C1EBB3F1300660156 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479C71B1EBB3F1300660156 /* AppDelegate.swift */; };
 		8479C7211EBB3F1300660156 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479C71F1EBB3F1300660156 /* Main.storyboard */; };
 		8479C7231EBB3F1300660156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8479C7221EBB3F1300660156 /* Assets.xcassets */; };
@@ -45,6 +49,10 @@
 		84515B481F358D11000BB79F /* sample2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sample2ViewController.xib; sourceTree = "<group>"; };
 		84515B4C1F3592C4000BB79F /* SampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTableViewCell.swift; sourceTree = "<group>"; };
 		84515B4D1F3592C4000BB79F /* SampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableViewCell.xib; sourceTree = "<group>"; };
+		84515B531F35D6A9000BB79F /* FirstTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
+		84515B541F35D6A9000BB79F /* FirstTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTabViewController.xib; sourceTree = "<group>"; };
+		84515B571F35D6BD000BB79F /* SecondTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
+		84515B581F35D6BD000BB79F /* SecondTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondTabViewController.xib; sourceTree = "<group>"; };
 		8479C7181EBB3F1300660156 /* swift.sample14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift.sample14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8479C71B1EBB3F1300660156 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8479C7201EBB3F1300660156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +95,7 @@
 				84515B441F358CF8000BB79F /* sample1ViewController.xib */,
 				84515B471F358D11000BB79F /* sample2ViewController.swift */,
 				84515B481F358D11000BB79F /* sample2ViewController.xib */,
+				84515B521F35D688000BB79F /* sampleTab */,
 				84515B4B1F359289000BB79F /* CellGroup */,
 			);
 			name = sample0;
@@ -99,6 +108,17 @@
 				84515B4D1F3592C4000BB79F /* SampleTableViewCell.xib */,
 			);
 			name = CellGroup;
+			sourceTree = "<group>";
+		};
+		84515B521F35D688000BB79F /* sampleTab */ = {
+			isa = PBXGroup;
+			children = (
+				84515B531F35D6A9000BB79F /* FirstTabViewController.swift */,
+				84515B541F35D6A9000BB79F /* FirstTabViewController.xib */,
+				84515B571F35D6BD000BB79F /* SecondTabViewController.swift */,
+				84515B581F35D6BD000BB79F /* SecondTabViewController.xib */,
+			);
+			name = sampleTab;
 			sourceTree = "<group>";
 		};
 		8479C70F1EBB3F1300660156 = {
@@ -231,6 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8479C7261EBB3F1300660156 /* LaunchScreen.storyboard in Resources */,
+				84515B561F35D6A9000BB79F /* FirstTabViewController.xib in Resources */,
+				84515B5A1F35D6BD000BB79F /* SecondTabViewController.xib in Resources */,
 				84515B411F358CA3000BB79F /* sample0ViewController.xib in Resources */,
 				8479C7421EBB48F700660156 /* set1.png in Resources */,
 				8479C7231EBB3F1300660156 /* Assets.xcassets in Resources */,
@@ -259,8 +281,10 @@
 				8479C73C1EBB3F3900660156 /* ViewController.swift in Sources */,
 				84515B491F358D11000BB79F /* sample2ViewController.swift in Sources */,
 				84515B451F358CF8000BB79F /* sample1ViewController.swift in Sources */,
+				84515B591F35D6BD000BB79F /* SecondTabViewController.swift in Sources */,
 				8479C71C1EBB3F1300660156 /* AppDelegate.swift in Sources */,
 				8479C73E1EBB3F4900660156 /* settingViewController.swift in Sources */,
+				84515B551F35D6A9000BB79F /* FirstTabViewController.swift in Sources */,
 				84515B4E1F3592C4000BB79F /* SampleTableViewCell.swift in Sources */,
 				84515B401F358CA3000BB79F /* sample0ViewController.swift in Sources */,
 			);

@@ -8,12 +8,29 @@
 
 import UIKit
 
-class sample1ViewController: UIViewController {
+class sample1ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.gray
+        self.title = "sample1の画面"
 
+        let mainViewController = FirstTabViewController()
+        let secondViewController = SecondTabViewController()
+        
+        mainViewController.title = "first"
+        secondViewController.title = "second"
+        
+        mainViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.favorites, tag: 1)
+        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 2)
+        
+        let navigationController1 = UINavigationController(rootViewController: mainViewController)
+        let navigationController2 = UINavigationController(rootViewController: secondViewController)
+        
+        //2つのViewControllerをArrayでまとめます
+        let tabs = [navigationController1, navigationController2]
+        
+        self.viewControllers = tabs
         // Do any additional setup after loading the view.
     }
 

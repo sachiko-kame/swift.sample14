@@ -10,21 +10,21 @@ import UIKit
 
 class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private let myItems: NSArray = ["sample0🐰", "sampl1🐰", "sampl2🐰"]
-    private let myItems2: NSArray = ["Sample0🐢", "Sample1🐢", "Sample2🐢", "Sample3🐢"]
+//    private let myItems: NSArray = ["sample0🐰", "sampl1🐰", "sampl2🐰"]
+    private let myItems2: NSArray = ["Sample0🐢 \nSample0🐢", "Sample1🐢 \nSample1🐢", "Sample2🐢\nSample2🐢", "Sample3🐢 \nSample3🐢"]
     private let SecItems: NSArray = ["セクション1", "セクション2"]
     
     /// 画像のファイル名
     let imageNames = ["set.png", "set.png", "set.png"]
     
     /// 画像のタイトル
-    let imageTitles = ["sample0🐰", "sample0🐰", "sample0🐰"]
+    let imageTitles = ["sample0🐰", "sample1🐰", "sample2🐰"]
     
     /// 画像の説明
     let imageDescriptions = [
         "設定します0",
-        "設定します0",
-        "設定します0"
+        "設定します1",
+        "設定します2"
     ]
     private var myTableView: UITableView!
     
@@ -115,6 +115,12 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
             cell.textLabel?.text = "\(myItems2[indexPath.row])"
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = UIFont(name:"HiraKakuProN-W3", size:18)
+            cell.textLabel?.sizeToFit()
+            cell.textLabel?.frame.size.height += ceil(abs((cell.textLabel?.font.descender)! * 2))
+//            cell.textLabel?.font = UIFont.systemFont(ofSize: 32)
+            cell.textLabel?.shadowColor = UIColor.gray
             return cell
         }
     }
