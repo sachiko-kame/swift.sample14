@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//文字装飾参考: http://blog.ch3cooh.jp/entry/20150716/1437017097
 class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 //    private let myItems: NSArray = ["sample0🐰", "sampl1🐰", "sampl2🐰"]
@@ -18,7 +18,7 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
     let imageNames = ["set.png", "set.png", "set.png"]
     
     /// 画像のタイトル
-    let imageTitles = ["sample0🐰", "sample1🐰", "sample2🐰"]
+    let imageTitles = ["sample0🐰\nSample0🐢", "sample1🐰\nSample0🐢", "sample2🐰\nSample0🐢"]
     
     /// 画像の説明
     let imageDescriptions = [
@@ -111,6 +111,8 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let cell = tableView.dequeueReusableCell(with: SampleTableViewCell.self, for: indexPath)
             cell.setCell(imageName: imageNames[indexPath.row], titleText: imageTitles[indexPath.row], descriptionText: imageDescriptions[indexPath.row])
+            cell.myTitleLabel.numberOfLines = 0
+            cell.myTitleLabel.attributedText = self.attribute1(text:cell.myTitleLabel.text!)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
@@ -150,6 +152,23 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(SecItems[section])"
+    }
+    
+    private func attribute1(text:String) -> NSAttributedString? {
+        let font = UIFont(name: "HiraKakuProN-W3", size: 10) ?? UIFont.systemFont(ofSize: 10)
+        
+        let style = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        style.alignment = NSTextAlignment.center
+        style.lineSpacing = 1.5 //行と行に間
+        
+        let attr = [
+            NSForegroundColorAttributeName: UIColor.cyan,
+            NSFontAttributeName: font,
+            NSParagraphStyleAttributeName: style, 
+            NSKernAttributeName: 10  //文字間隔増える横と横の文字間隔
+            ] as [String : Any]
+        
+        return NSAttributedString(string: "\(text)", attributes: attr)
     }
 }
 
