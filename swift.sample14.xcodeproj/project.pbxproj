@@ -95,8 +95,6 @@
 				84515B441F358CF8000BB79F /* sample1ViewController.xib */,
 				84515B471F358D11000BB79F /* sample2ViewController.swift */,
 				84515B481F358D11000BB79F /* sample2ViewController.xib */,
-				84515B521F35D688000BB79F /* sampleTab */,
-				84515B4B1F359289000BB79F /* CellGroup */,
 			);
 			name = sample0;
 			sourceTree = "<group>";
@@ -148,6 +146,9 @@
 				8479C73B1EBB3F3900660156 /* ViewController.swift */,
 				8479C73D1EBB3F4900660156 /* settingViewController.swift */,
 				8479C71F1EBB3F1300660156 /* Main.storyboard */,
+				84515B4B1F359289000BB79F /* CellGroup */,
+				84515B521F35D688000BB79F /* sampleTab */,
+				84FC43701F36EBEE006D2388 /* sample1 */,
 				84515B421F358CD8000BB79F /* sample0 */,
 				8479C7221EBB3F1300660156 /* Assets.xcassets */,
 				8479C7241EBB3F1300660156 /* LaunchScreen.storyboard */,
@@ -163,6 +164,13 @@
 				8479C7321EBB3F1400660156 /* Info.plist */,
 			);
 			path = swift.sample14Tests;
+			sourceTree = "<group>";
+		};
+		84FC43701F36EBEE006D2388 /* sample1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = sample1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
