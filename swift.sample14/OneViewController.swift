@@ -13,6 +13,12 @@ class OneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let img = UIImage(named: "setf.png")
+        let imgView = UIImageView()
+        let rec = CGRect(x: 10.0, y: 10.0 + 100.0, width:100.0 , height: 200.0)
+        imgView.frame = rec
+        imgView.image = img
+        self.view.addSubview(imgView)
         // Do any additional setup after loading the view.
     }
 
