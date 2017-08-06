@@ -29,12 +29,12 @@ struct PageSettings {
     
     //UIPageViewControllerに配置するUIViewControllerクラスの名称
     static let pageControllerIdentifierList : [String] = [
-        "OneViewController",
-        "TwoViewController",
-        "OneViewController",
-        "TwoViewController",
-        "OneViewController",
-        "TwoViewController"
+        "StorySam0",
+        "StorySam1",
+        "StorySam0",
+        "StorySam1",
+        "StorySam0",
+        "StorySam1"
     ]
     
     //UIPageViewControllerに追加するViewControllerのリストを生成する
@@ -44,8 +44,8 @@ struct PageSettings {
         self.pageControllerIdentifierList.forEach { viewControllerName in
             
             //ViewControllerのIdentifierからViewControllerを作る
-            let viewController = UIStoryboard(name: "Main", bundle: nil) .
-                instantiateViewController(withIdentifier: "\(viewControllerName)")
+            let viewController = UIStoryboard(name: "\(viewControllerName)", bundle: nil) .
+                instantiateViewController(withIdentifier: "\(viewControllerName)ViewController")
             
             viewControllers.append(viewController)
         }

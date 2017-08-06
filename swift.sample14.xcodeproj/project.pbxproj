@@ -28,6 +28,10 @@
 		8479C73E1EBB3F4900660156 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479C73D1EBB3F4900660156 /* settingViewController.swift */; };
 		8479C7401EBB3FDF00660156 /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C73F1EBB3FDF00660156 /* set.png */; };
 		8479C7421EBB48F700660156 /* set1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C7411EBB48F700660156 /* set1.png */; };
+		84CD9A1C1F373F740002C19C /* StorySam0.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CD9A1B1F373F740002C19C /* StorySam0.storyboard */; };
+		84CD9A1E1F373F7D0002C19C /* StorySam1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CD9A1D1F373F7D0002C19C /* StorySam1.storyboard */; };
+		84CD9A201F373F8A0002C19C /* StorySam0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD9A1F1F373F8A0002C19C /* StorySam0ViewController.swift */; };
+		84CD9A221F373F950002C19C /* StorySam1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD9A211F373F950002C19C /* StorySam1ViewController.swift */; };
 		84E8ACA21F370762005361E4 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8ACA11F370762005361E4 /* OneViewController.swift */; };
 		84E8ACA41F370D96005361E4 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8ACA31F370D96005361E4 /* TwoViewController.swift */; };
 		84FC43731F36EC80006D2388 /* sample1_0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC43711F36EC80006D2388 /* sample1_0ViewController.swift */; };
@@ -74,6 +78,10 @@
 		8479C73D1EBB3F4900660156 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		8479C73F1EBB3FDF00660156 /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
 		8479C7411EBB48F700660156 /* set1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set1.png; sourceTree = "<group>"; };
+		84CD9A1B1F373F740002C19C /* StorySam0.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StorySam0.storyboard; sourceTree = "<group>"; };
+		84CD9A1D1F373F7D0002C19C /* StorySam1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StorySam1.storyboard; sourceTree = "<group>"; };
+		84CD9A1F1F373F8A0002C19C /* StorySam0ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySam0ViewController.swift; sourceTree = "<group>"; };
+		84CD9A211F373F950002C19C /* StorySam1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySam1ViewController.swift; sourceTree = "<group>"; };
 		84E8ACA11F370762005361E4 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		84E8ACA31F370D96005361E4 /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		84FC43711F36EC80006D2388 /* sample1_0ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample1_0ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +172,7 @@
 				8479C71F1EBB3F1300660156 /* Main.storyboard */,
 				84E8ACA11F370762005361E4 /* OneViewController.swift */,
 				84E8ACA31F370D96005361E4 /* TwoViewController.swift */,
+				84CD9A1A1F373F200002C19C /* StoryBordGroup */,
 				84515B4B1F359289000BB79F /* CellGroup */,
 				84515B521F35D688000BB79F /* sampleTab */,
 				84FC43701F36EBEE006D2388 /* sample1 */,
@@ -182,6 +191,17 @@
 				8479C7321EBB3F1400660156 /* Info.plist */,
 			);
 			path = swift.sample14Tests;
+			sourceTree = "<group>";
+		};
+		84CD9A1A1F373F200002C19C /* StoryBordGroup */ = {
+			isa = PBXGroup;
+			children = (
+				84CD9A1B1F373F740002C19C /* StorySam0.storyboard */,
+				84CD9A1D1F373F7D0002C19C /* StorySam1.storyboard */,
+				84CD9A1F1F373F8A0002C19C /* StorySam0ViewController.swift */,
+				84CD9A211F373F950002C19C /* StorySam1ViewController.swift */,
+			);
+			name = StoryBordGroup;
 			sourceTree = "<group>";
 		};
 		84FC43701F36EBEE006D2388 /* sample1 */ = {
@@ -286,6 +306,7 @@
 				84FC43741F36EC80006D2388 /* sample1_0ViewController.xib in Resources */,
 				84515B561F35D6A9000BB79F /* FirstTabViewController.xib in Resources */,
 				84515B5A1F35D6BD000BB79F /* SecondTabViewController.xib in Resources */,
+				84CD9A1C1F373F740002C19C /* StorySam0.storyboard in Resources */,
 				84515B411F358CA3000BB79F /* sample0ViewController.xib in Resources */,
 				8479C7421EBB48F700660156 /* set1.png in Resources */,
 				8479C7231EBB3F1300660156 /* Assets.xcassets in Resources */,
@@ -295,6 +316,7 @@
 				84515B4A1F358D11000BB79F /* sample2ViewController.xib in Resources */,
 				84FC43781F36ECA4006D2388 /* sample1_1ViewController.xib in Resources */,
 				8479C7211EBB3F1300660156 /* Main.storyboard in Resources */,
+				84CD9A1E1F373F7D0002C19C /* StorySam1.storyboard in Resources */,
 				84515B461F358CF8000BB79F /* sample1ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,10 +345,12 @@
 				8479C73E1EBB3F4900660156 /* settingViewController.swift in Sources */,
 				84515B551F35D6A9000BB79F /* FirstTabViewController.swift in Sources */,
 				84FC43731F36EC80006D2388 /* sample1_0ViewController.swift in Sources */,
+				84CD9A221F373F950002C19C /* StorySam1ViewController.swift in Sources */,
 				84E8ACA21F370762005361E4 /* OneViewController.swift in Sources */,
 				84E8ACA41F370D96005361E4 /* TwoViewController.swift in Sources */,
 				84515B4E1F3592C4000BB79F /* SampleTableViewCell.swift in Sources */,
 				84515B401F358CA3000BB79F /* sample0ViewController.swift in Sources */,
+				84CD9A201F373F8A0002C19C /* StorySam0ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
