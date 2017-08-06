@@ -59,7 +59,7 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
     
     var navHeight : CGFloat!
     
-    //子のViewControllerのindex
+    //子のViewControllerのindex　この数値で現在どこにいるかを判断するためこの数値に処理を入れている。
     var viewControllerIndex : Int = 0
     
     //動くラベルの設定
@@ -67,9 +67,6 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
     
     //ページ管理用のコントローラー
     var pageViewController : UIPageViewController!
-    
-    //ページコンテンツのViewController名格納用の配列
-    var pageContentsControllerList : [String] = []
     
     //メニュー用のスクロールビュー
     var menuScrollView : UIScrollView!
@@ -102,7 +99,7 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = self
         
-        //最初に表示するページを設定、作成したViewControlloerの配列のViewConntolollerを一番最初のページとします。
+        //作成したViewControlloerの配列をpageViewControllerに設定、その際に動作も少し設定をする。
         self.pageViewController.setViewControllers([PageSettings.generateViewControllerList().first!], direction: .forward, animated: false, completion: nil)
         
         //UIPageViewControllerを子のViewControllerとして登録
@@ -144,20 +141,23 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
         //UIScrollViewの初期設定
         initContentsScrollViewSettings()
         
-        //UIScrollViewへのボタンの配置
+        //UIScrollViewへのボタンの配置 リスト配列が0なのでカウントを-1にして調整
         for i in 0...(PageSettings.pageScrollNavigationList.count - 1){
             self.addButtonToButtonScrollView(i)
         }
         
-        //動くラベルの配置
+        //動くラベルの配置 下の細いバー、スクロールバー見せないでViewを見せる、最初は末端にあるのでこの計算値、後で動かす。
         slidingLabel.frame = CGRect(
             x: CGFloat(0),
             y: CGFloat(PageSettings.slidingLabelY) + navHeight,
             width: CGFloat(self.view.frame.width / 3),
             height: CGFloat(PageSettings.slidingLabelH)
         )
+        //スクロールするメニューに配置
         menuScrollView.addSubview(slidingLabel)
+        //最前面にくるように
         menuScrollView.bringSubview(toFront: slidingLabel)
+        //ラベルに色をつける
         slidingLabel.backgroundColor = UIColor.darkGray
 
     }
@@ -167,6 +167,7 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
      * UIPageViewControllerDelegateのメソッドを活用
      *
      */
+    //開始の繊維が終了すると送信。つまり実行finishedはアニメーションが終了したかを表す。completedはトランジションが完了したかをあらわす。
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         //スワイプアニメーションが完了していない時には処理をさせなくする
@@ -216,26 +217,32 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
     //コンテンツ配置用Scrollviewの初期セッティング
     func initContentsScrollViewSettings() {
         
+        // ページ単位でスクロールするかの設定
         menuScrollView.isPagingEnabled = false
+        //スクロールできるようにする？ドラッグオフ？
         menuScrollView.isScrollEnabled = true
+        //ドラッグ時のたて、横スクロールをロックしない
         menuScrollView.isDirectionalLockEnabled = false
+        // 水平スクロールバーの表示有無 今回表示させない、意図的に作成しているから
         menuScrollView.showsHorizontalScrollIndicator = false
+        // 垂直スクロールバーの表示有無　今回表示させない、意図的に作成しているから
         menuScrollView.showsVerticalScrollIndicator = false
+        // スクロールをバウンドさせる、させないの設定 うーぴょんってやつ
         menuScrollView.bounces = false
+        // 画面上部をタップ時にスクロールを一番上へ移動するかの設定
         menuScrollView.scrollsToTop = false
         
-        //コンテンツサイズの決定
+        //コンテンツサイズの決定　//一つの幅に3つ入れるから/3
         self.menuScrollView.contentSize = CGSize(
             width: CGFloat(Int(self.view.frame.width) * PageSettings.pageScrollNavigationList.count / 3),
             height: CGFloat(PageSettings.menuScrollViewH)
         )
     }
     
-    //ボタンの初期配置を行う
+    //ボタンの初期配置を行う　スクロールの幅の最初から幅とって順々に入れていく。
     func addButtonToButtonScrollView(_ i: Int) {
         
         let buttonElement: UIButton! = UIButton()
-        
         
         let pX: CGFloat = CGFloat(Int(self.view.frame.width) / 3 * i)
         let pY: CGFloat = CGFloat(0) + navHeight
@@ -243,7 +250,7 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
         let pH: CGFloat = CGFloat(menuScrollView.frame.height)
         
         buttonElement.frame = CGRect(x: pX, y: pY, width: pW, height: pH)
-        buttonElement.backgroundColor = UIColor.clear
+        buttonElement.backgroundColor = UIColor.black
         buttonElement.setTitle(PageSettings.pageScrollNavigationList[i], for: UIControlState())
         buttonElement.titleLabel!.font = UIFont(name: "Bold", size: CGFloat(16))
         buttonElement.tag = i
