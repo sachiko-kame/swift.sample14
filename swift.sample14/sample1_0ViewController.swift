@@ -14,8 +14,8 @@ struct PageSettings {
     //ScrollViewのサイズに関するセッテイング
     static let menuScrollViewY : Int = 20
     static let menuScrollViewH : Int = 40
-    static let slidingLabelY : Int = 36
-    static let slidingLabelH : Int = 4
+    static let slidingLabelY : Int = 34
+    static let slidingLabelH : Int = 1
     
     //ScrollViewに表示するボタン名称
     static let pageScrollNavigationList: [String] = [
