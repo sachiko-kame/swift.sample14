@@ -57,6 +57,10 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = UIColor.white
+        // 水平スクロールバーの表示有無 今回表示させない、意図的に作成しているから
+        collectionView.showsHorizontalScrollIndicator = false
+        // 垂直スクロールバーの表示有無　今回表示させない、意図的に作成しているから
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.delaysContentTouches = false
         collectionView.dataSource = self
         collectionView.delegate = self
