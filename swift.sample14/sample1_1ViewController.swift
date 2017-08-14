@@ -56,6 +56,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.backgroundColor = UIColor.white
         collectionView.delaysContentTouches = false
         collectionView.dataSource = self
         collectionView.delegate = self
