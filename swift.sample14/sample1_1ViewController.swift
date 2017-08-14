@@ -29,6 +29,9 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     let viewframewidth:CGFloat = UIScreen.main.bounds.width
     
+    //最初のみ一番左をグレーに
+    var onebool:Bool = true
+    
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil){
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
     }
@@ -102,6 +105,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     //右にスワイプした場合に表示したいviewControllerを返す
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
+        onebool = false
 //        self.collectionView.reloadData()
         for i in 1...(tagArray.count){
             view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
@@ -127,6 +131,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerAfter viewController: UIViewController) ->
         UIViewController? {
+            onebool = false
 //            self.collectionView.reloadData()
             for i in 1...(tagArray.count){
                 view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
@@ -167,9 +172,12 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
         cell.layer.cornerRadius = 20
         cell.tag = tagArray[indexPath.row]
-        view.viewWithTag(1)?.backgroundColor = UIColor.gray
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 1
+        if(onebool){
+            view.viewWithTag(1)?.backgroundColor = UIColor.gray
+        }
+        
+        //cell.layer.borderColor = UIColor.black.cgColor
+        //cell.layer.borderWidth = 1
         cell.layer.masksToBounds = true
         cell.config(text: "\(cell.tag)")
     
@@ -179,6 +187,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        onebool = false
         let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
         for i in 1...(tagArray.count){
             view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
