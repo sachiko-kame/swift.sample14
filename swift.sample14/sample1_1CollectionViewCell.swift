@@ -21,5 +21,6 @@ class sample1_1CollectionViewCell: UICollectionViewCell {
 //        self.cellbutton.setTitle("🐢\(text)", for: .highlighted)
 //        self.cellbutton.setTitleColor(UIColor.green, for: UIControlState.highlighted)
     }
+    
 
 }

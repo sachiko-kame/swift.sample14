@@ -151,8 +151,19 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         //選択された所に遷移
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
+        cell.backgroundColor = UIColor.darkGray
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
+        cell.backgroundColor = UIColor.orange // 元の色にする
     }
     
     func labeMove(ind:CGFloat){
