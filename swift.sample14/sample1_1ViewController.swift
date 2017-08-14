@@ -37,6 +37,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         
         let navheight:CGFloat = (self.navigationController?.navigationBar.frame.size.height)!
         
