@@ -59,7 +59,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         let rec = CGRect(x: 0.0, y: navheight + 20 , width:viewframewidth , height: labeheight)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        collectionView.backgroundColor = UIColor.blue
+        collectionView.backgroundColor = UIColor.white
         // 水平スクロールバーの表示有無 今回表示させない、意図的に作成しているから
         collectionView.showsHorizontalScrollIndicator = false
         // 垂直スクロールバーの表示有無　今回表示させない、意図的に作成しているから
@@ -153,6 +153,10 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         collectionView.register(cellType: sample1_1CollectionViewCell.self)
         let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)
         cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
+        cell.layer.cornerRadius = 20
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 1
+        cell.layer.masksToBounds = true
         cell.config(text: "\(indexPath.dropFirst())")
     
         
