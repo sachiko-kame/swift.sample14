@@ -162,7 +162,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
         cell.backgroundColor = UIColor.darkGray
-        cell.config(text: "選択")
+//        cell.config(text: "選択")
         
     }
 //
