@@ -50,14 +50,15 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         
         // レイアウト作成
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 0.0
+        flowLayout.minimumLineSpacing = 0.0
         flowLayout.scrollDirection = .horizontal
         //-10で隙間あけてる
-        flowLayout.itemSize = CGSize(width:viewframewidth / 3 - 10,  height:CGFloat(labeheight))
-        
-        let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
+        flowLayout.itemSize = CGSize(width:viewframewidth / 3 ,  height:CGFloat(labeheight))
+        let rec = CGRect(x: 0.0, y: navheight + 20 , width:viewframewidth , height: labeheight + labeline)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = UIColor.blue
         // 水平スクロールバーの表示有無 今回表示させない、意図的に作成しているから
         collectionView.showsHorizontalScrollIndicator = false
         // 垂直スクロールバーの表示有無　今回表示させない、意図的に作成しているから
