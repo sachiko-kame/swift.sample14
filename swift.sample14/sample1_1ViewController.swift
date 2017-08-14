@@ -93,6 +93,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     //右にスワイプした場合に表示したいviewControllerを返す
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
+        self.collectionView.reloadData()
         let index:Int = pageControllergrop.index(of: viewController)!
         let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
         self.labeMove(ind:ind)
@@ -112,6 +113,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerAfter viewController: UIViewController) ->
         UIViewController? {
+            self.collectionView.reloadData()
             let index:Int = pageControllergrop.index(of: viewController)!
             let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
             self.labeMove(ind:ind)
@@ -157,15 +159,20 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
-//        cell.backgroundColor = UIColor.darkGray
-//    }
-//    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
+        cell.backgroundColor = UIColor.white
+    }
+//
 //    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 //        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
 //        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor //
 //    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
+        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
+    }
     
     func labeMove(ind:CGFloat){
     
