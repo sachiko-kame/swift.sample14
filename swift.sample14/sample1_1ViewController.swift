@@ -83,7 +83,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         for i in 0...(pagelist.count - 1){
             let viewController = UIStoryboard(name: "PAGE", bundle: nil).instantiateViewController(withIdentifier: "\(pagelist[i])ViewController")
             let mylabe = UILabel()
-            mylabe.text = "\(i)ViewController"
+            mylabe.text = "\(i + 1)ViewController"
             mylabe.sizeToFit()
             mylabe.center = self.view.center
             viewController.view.addSubview(mylabe)
@@ -171,7 +171,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
 //        cell.layer.borderColor = UIColor.black.cgColor
 //        cell.layer.borderWidth = 1
         cell.layer.masksToBounds = true
-        cell.config(text: "\(indexPath.dropFirst())")
+        cell.config(text: "\(cell.tag)")
     
         
         return cell
