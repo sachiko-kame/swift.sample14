@@ -72,6 +72,11 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func makeViewcontoller(){
         for i in 0...(pagelist.count - 1){
             let viewController = UIStoryboard(name: "PAGE", bundle: nil).instantiateViewController(withIdentifier: "\(pagelist[i])ViewController")
+            let mylabe = UILabel()
+            mylabe.text = "\(i)ViewController"
+            mylabe.sizeToFit()
+            mylabe.center = self.view.center
+            viewController.view.addSubview(mylabe)
             self.pageControllergrop.append(viewController)
         }
     }
