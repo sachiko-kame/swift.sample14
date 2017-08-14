@@ -51,6 +51,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         // レイアウト作成
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        //-10で隙間あけてる
         flowLayout.itemSize = CGSize(width:viewframewidth / 3 - 10,  height:CGFloat(labeheight))
         
         let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
@@ -93,14 +94,13 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
         let index:Int = pageControllergrop.index(of: viewController)!
         let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
+        self.labeMove(ind:ind)
         current = pageControllergrop.index(of: viewController)!
         //1ページ何もしない
         switch index {
         case 0:
-            self.labeMove(ind:ind)
             return nil
         default:
-            self.labeMove(ind:ind)
             //2だったら1に、　3だったら2に
             return pageControllergrop[index-1]
         }
@@ -113,19 +113,19 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         UIViewController? {
             let index:Int = pageControllergrop.index(of: viewController)!
             let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
+            self.labeMove(ind:ind)
             current = pageControllergrop.index(of: viewController)!
             switch index {
             //最終ページ何もしない
             case pageControllergrop.count-1:
-                self.labeMove(ind:ind)
                 return nil
             default:
-                self.labeMove(ind:ind)
                 //最終ページでない場合進める
                 return pageControllergrop[index+1]
             }
             
     }
+    
     
     // MARK: - collectionView
     
@@ -156,34 +156,25 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     }
     
     func labeMove(ind:CGFloat){
+    
         switch ind {
-        case 0:
-            collectionView.contentOffset = CGPoint(
-                x: 0 ,
-                y: 0
-            )
-        case 1:
+            //0から1
+        case 0..<2:
             collectionView.contentOffset = CGPoint(
                 x: 0 ,
                 y: 0
             )
         case 2:
             collectionView.contentOffset = CGPoint(
-                x:  viewframewidth / 3 * (ind - 1) ,
+                x:  (viewframewidth / 3) * (ind - 1) ,
                 y: 0
             )
-        case 3:
-            collectionView.contentOffset = CGPoint(
-                x:  viewframewidth / 3 * (ind - 1) ,
-                y: 0
-            )
-        case 4:
-            collectionView.contentOffset = CGPoint(
-                x:  viewframewidth / 3 * (ind - 2) ,
-                y: 0
-            )
-
+            //3.4
         default:
+            collectionView.contentOffset = CGPoint(
+                x:  (viewframewidth / 3) * 2 ,
+                y: 0
+            )
             break
         }
     }
