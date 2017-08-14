@@ -140,14 +140,8 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //選択されたとこと　currentが現在いるところ
-        let cellselect = indexPath.row
-        if(cellselect == current){
-            return
-        }else{
-           //選択されたページにする。
-            self.setViewControllers([pageControllergrop[cellselect]], direction: .forward, animated: false, completion: nil)
-        }
+        //選択された所に遷移
+        self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
     }
 
 }
