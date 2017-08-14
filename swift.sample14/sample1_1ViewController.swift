@@ -55,7 +55,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         flowLayout.scrollDirection = .horizontal
         //-10で隙間あけてる
         flowLayout.itemSize = CGSize(width:viewframewidth / 3 ,  height:CGFloat(labeheight))
-        let rec = CGRect(x: 0.0, y: navheight + 20 , width:viewframewidth , height: labeheight + labeline)
+        let rec = CGRect(x: 0.0, y: navheight + 20 , width:viewframewidth , height: labeheight)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = UIColor.blue
