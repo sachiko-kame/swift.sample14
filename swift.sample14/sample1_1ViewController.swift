@@ -84,6 +84,12 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
             mylabe.sizeToFit()
             mylabe.center = self.view.center
             viewController.view.addSubview(mylabe)
+            let img = UIImage(named: "set.png")
+            let imgView = UIImageView()
+            let rec = CGRect(x: 30.0, y: 150.0, width:100.0 , height: 100.0)
+            imgView.frame = rec
+            imgView.image = img
+            viewController.view.addSubview(imgView)
             self.pageControllergrop.append(viewController)
         }
     }
