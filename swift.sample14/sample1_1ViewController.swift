@@ -102,11 +102,16 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     //右にスワイプした場合に表示したいviewControllerを返す
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
+        for i in 1...(tagArray.count){
+            view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
+        }
+
         let index:Int = pageControllergrop.index(of: viewController)!
         let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
         self.labeMove(ind:ind)
         current = pageControllergrop.index(of: viewController)!
+        view.viewWithTag(index + 1)?.backgroundColor = UIColor.gray
         //1ページ何もしない
         switch index {
         case 0:
@@ -122,11 +127,16 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerAfter viewController: UIViewController) ->
         UIViewController? {
-            self.collectionView.reloadData()
+//            self.collectionView.reloadData()
+            for i in 1...(tagArray.count){
+                view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
+            }
+
             let index:Int = pageControllergrop.index(of: viewController)!
             let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
             self.labeMove(ind:ind)
             current = pageControllergrop.index(of: viewController)!
+            view.viewWithTag(index + 1)?.backgroundColor = UIColor.gray
             switch index {
             //最終ページ何もしない
             case pageControllergrop.count-1:
