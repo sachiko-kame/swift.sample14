@@ -33,7 +33,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     var onebool:Bool = true
     
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil){
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+        super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
     }
         
     required init?(coder aDecoder: NSCoder) {
