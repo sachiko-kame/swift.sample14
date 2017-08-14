@@ -17,6 +17,8 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     var collectionView:UICollectionView!
     
+    var tagArray = [1,2,3,4,5]
+    
     //現在のページのために
     var current:Int? = 0
     
@@ -154,6 +156,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)
         cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
         cell.layer.cornerRadius = 20
+        cell.tag = tagArray[indexPath.row]
 //        cell.layer.borderColor = UIColor.black.cgColor
 //        cell.layer.borderWidth = 1
         cell.layer.masksToBounds = true
@@ -165,6 +168,11 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
+        for i in 1...(tagArray.count){
+            view.viewWithTag(i)?.backgroundColor = self.pageControllergrop[i - 1].view.backgroundColor
+        }
+        cell.backgroundColor = UIColor.darkGray
         
         //選択された所に遷移
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
