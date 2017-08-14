@@ -167,6 +167,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
         cell.layer.cornerRadius = 20
         cell.tag = tagArray[indexPath.row]
+        view.viewWithTag(1)?.backgroundColor = UIColor.gray
 //        cell.layer.borderColor = UIColor.black.cgColor
 //        cell.layer.borderWidth = 1
         cell.layer.masksToBounds = true
