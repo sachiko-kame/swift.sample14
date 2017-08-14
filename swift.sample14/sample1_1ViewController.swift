@@ -166,23 +166,18 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
-        cell.backgroundColor = UIColor.darkGray
-//        cell.config(text: "選択")
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        
+//    }
 //
 //    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
-//        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor //
+//        
 //    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! sample1_1CollectionViewCell
-        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
-    }
-    
+//    
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        
+//    }
+//    
     func labeMove(ind:CGFloat){
     
         switch ind {
