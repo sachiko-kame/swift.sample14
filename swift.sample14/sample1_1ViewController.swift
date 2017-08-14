@@ -7,31 +7,119 @@
 //
 
 import UIKit
-
-class sample1_1ViewController: UIViewController {
-
+//参考http://mypace1981.doorblog.jp/archives/49614586.html
+//参考 http://swift-studying.com/blog/swift/?p=304 コレクションビュー
+class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    
+    var pageControllergrop = [UIViewController]()
+    let pagelist = ["PAGE1", "PAGE2", "PAGE3", "PAGE4", "PAGE5"]
+    
+    var collectionView:UICollectionView!
+    
+    //ラベルの高さ
+    let labeheight:CGFloat = 60
+    //ライン分
+    let labeline:CGFloat = 10
+    
+    let viewframewidth:CGFloat = UIScreen.main.bounds.width
+    
+    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil){
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+    }
+        
+    required init?(coder aDecoder: NSCoder) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navheight:CGFloat = (self.navigationController?.navigationBar.frame.size.height)!
+        
         self.title = "pageViewContollolresample"
         self.view.backgroundColor = UIColor.darkGray
-
-        // Do any additional setup after loading the view.
+        self.makeViewcontoller()
+        self.setViewControllers([pageControllergrop.first!], direction: .forward, animated: false, completion: nil)
+        dataSource = self
+        delegate = self
+        
+        
+        // レイアウト作成
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width:viewframewidth / 3 - 10,  height:CGFloat(labeheight))
+        
+        let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
+        collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        view.addSubview(collectionView)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func makeViewcontoller(){
+        for i in 0...(pagelist.count - 1){
+            let viewController = UIStoryboard(name: "PAGE", bundle: nil).instantiateViewController(withIdentifier: "\(pagelist[i])ViewController")
+            self.pageControllergrop.append(viewController)
+        }
     }
-    */
+    
+    // MARK: - pageViewController
+    
+    //右にスワイプした場合に表示したいviewControllerを返す
+    func pageViewController(_ pageViewController:
+        UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
+        let index:Int = pageControllergrop.index(of: viewController)!
+        //1ページ何もしない
+        switch index {
+        case 0:
+            return nil
+        default:
+            //2だったら1に、　3だったら2に
+            return pageControllergrop[index-1]
+        }
+    
+    }
+    
+    //左にスワイプした場合に表示したいviewControllerを返す
+    func pageViewController(_ pageViewController:
+        UIPageViewController, viewControllerAfter viewController: UIViewController) ->
+        UIViewController? {
+            let index:Int = pageControllergrop.index(of: viewController)!
+            switch index {
+            //最終ページ何もしない
+            case pageControllergrop.count-1:
+                return nil
+            default:
+                //最終ページでない場合進める
+                return pageControllergrop[index+1]
+            }
+            
+    }
+    
+    // MARK: - collectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pagelist.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
+                                                                             for: indexPath as IndexPath)
+        cell.backgroundColor = UIColor.orange
+    
+        
+        return cell
+    }
 
 }
