@@ -34,6 +34,8 @@
 		8479C73E1EBB3F4900660156 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479C73D1EBB3F4900660156 /* settingViewController.swift */; };
 		8479C7401EBB3FDF00660156 /* set.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C73F1EBB3FDF00660156 /* set.png */; };
 		8479C7421EBB48F700660156 /* set1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8479C7411EBB48F700660156 /* set1.png */; };
+		849E8EBE1F41944300467F2C /* sample1_1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E8EBC1F41944300467F2C /* sample1_1CollectionViewCell.swift */; };
+		849E8EBF1F41944300467F2C /* sample1_1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849E8EBD1F41944300467F2C /* sample1_1CollectionViewCell.xib */; };
 		84CD9A1C1F373F740002C19C /* StorySam0.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CD9A1B1F373F740002C19C /* StorySam0.storyboard */; };
 		84CD9A1E1F373F7D0002C19C /* StorySam1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CD9A1D1F373F7D0002C19C /* StorySam1.storyboard */; };
 		84CD9A201F373F8A0002C19C /* StorySam0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD9A1F1F373F8A0002C19C /* StorySam0ViewController.swift */; };
@@ -90,6 +92,8 @@
 		8479C73D1EBB3F4900660156 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		8479C73F1EBB3FDF00660156 /* set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set.png; sourceTree = "<group>"; };
 		8479C7411EBB48F700660156 /* set1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set1.png; sourceTree = "<group>"; };
+		849E8EBC1F41944300467F2C /* sample1_1CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample1_1CollectionViewCell.swift; sourceTree = "<group>"; };
+		849E8EBD1F41944300467F2C /* sample1_1CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sample1_1CollectionViewCell.xib; sourceTree = "<group>"; };
 		84CD9A1B1F373F740002C19C /* StorySam0.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StorySam0.storyboard; sourceTree = "<group>"; };
 		84CD9A1D1F373F7D0002C19C /* StorySam1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StorySam1.storyboard; sourceTree = "<group>"; };
 		84CD9A1F1F373F8A0002C19C /* StorySam0ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySam0ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				847179731F4149BA00692C8F /* PAGE3ViewController.swift */,
 				847179751F4149C800692C8F /* PAGE4ViewController.swift */,
 				847179771F4149DB00692C8F /* PAGE5ViewController.swift */,
+				849E8EBC1F41944300467F2C /* sample1_1CollectionViewCell.swift */,
+				849E8EBD1F41944300467F2C /* sample1_1CollectionViewCell.xib */,
 			);
 			name = sample1_1;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				84515B4F1F3592C4000BB79F /* SampleTableViewCell.xib in Resources */,
 				8479C7401EBB3FDF00660156 /* set.png in Resources */,
 				84515B4A1F358D11000BB79F /* sample2ViewController.xib in Resources */,
+				849E8EBF1F41944300467F2C /* sample1_1CollectionViewCell.xib in Resources */,
 				84FC43781F36ECA4006D2388 /* sample1_1ViewController.xib in Resources */,
 				8479C7211EBB3F1300660156 /* Main.storyboard in Resources */,
 				8471796E1F41493E00692C8F /* PAGE.storyboard in Resources */,
@@ -390,6 +397,7 @@
 				847179781F4149DB00692C8F /* PAGE5ViewController.swift in Sources */,
 				847179701F41499900692C8F /* PAGE1ViewController.swift in Sources */,
 				84FC43731F36EC80006D2388 /* sample1_0ViewController.swift in Sources */,
+				849E8EBE1F41944300467F2C /* sample1_1CollectionViewCell.swift in Sources */,
 				84CD9A221F373F950002C19C /* StorySam1ViewController.swift in Sources */,
 				84E8ACA21F370762005361E4 /* OneViewController.swift in Sources */,
 				847179741F4149BA00692C8F /* PAGE3ViewController.swift in Sources */,

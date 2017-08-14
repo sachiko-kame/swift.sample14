@@ -51,7 +51,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         
         let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -114,12 +114,44 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
-                                                                             for: indexPath as IndexPath)
+        collectionView.register(cellType: sample1_1CollectionViewCell.self)
+        let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)
         cell.backgroundColor = UIColor.orange
+        cell.config(text: "\(indexPath.dropFirst())")
     
         
         return cell
     }
 
+}
+
+
+extension UICollectionView {
+    func register<T: UICollectionViewCell>(cellType: T.Type) {
+        let className = cellType.className
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forCellWithReuseIdentifier: className)
+    }
+    
+    func register<T: UICollectionViewCell>(cellTypes: [T.Type]) {
+        cellTypes.forEach { register(cellType: $0) }
+    }
+    
+    func register<T: UICollectionReusableView>(reusableViewType: T.Type, of kind: String = UICollectionElementKindSectionHeader) {
+        let className = reusableViewType.className
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: className)
+    }
+    
+    func register<T: UICollectionReusableView>(reusableViewTypes: [T.Type], kind: String = UICollectionElementKindSectionHeader) {
+        reusableViewTypes.forEach { register(reusableViewType: $0, of: kind) }
+    }
+    
+    func dequeueReusableCell<T: UICollectionViewCell>(with type: T.Type, for indexPath: IndexPath) -> T {
+        return dequeueReusableCell(withReuseIdentifier: type.className, for: indexPath) as! T
+    }
+    
+    func dequeueReusableView<T: UICollectionReusableView>(with type: T.Type, for indexPath: IndexPath, of kind: String = UICollectionElementKindSectionHeader) -> T {
+        return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: type.className, for: indexPath) as! T
+    }
 }
