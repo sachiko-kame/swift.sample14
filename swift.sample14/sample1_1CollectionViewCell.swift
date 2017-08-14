@@ -9,15 +9,15 @@
 import UIKit
 
 class sample1_1CollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var cellbutton: UIButton!
 
+    @IBOutlet weak var celllabe: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
     func config(text:String){
-        self.cellbutton.setTitle("🐢\(text)", for: .normal)
+        self.celllabe.text = "🐢\(text)"
 //        self.cellbutton.setTitle("🐢\(text)", for: .highlighted)
 //        self.cellbutton.setTitleColor(UIColor.green, for: UIControlState.highlighted)
     }

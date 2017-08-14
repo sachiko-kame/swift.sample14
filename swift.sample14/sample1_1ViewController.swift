@@ -17,6 +17,9 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     var collectionView:UICollectionView!
     
+    //現在のページのために
+    var current:Int? = 0
+    
     //ラベルの高さ
     let labeheight:CGFloat = 60
     //ライン分
@@ -79,6 +82,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
         let index:Int = pageControllergrop.index(of: viewController)!
+        current = pageControllergrop.index(of: viewController)!
         //1ページ何もしない
         switch index {
         case 0:
@@ -95,6 +99,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         UIPageViewController, viewControllerAfter viewController: UIViewController) ->
         UIViewController? {
             let index:Int = pageControllergrop.index(of: viewController)!
+            current = pageControllergrop.index(of: viewController)!
             switch index {
             //最終ページ何もしない
             case pageControllergrop.count-1:
@@ -119,7 +124,6 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
                 vi.delaysContentTouches = false
             }
         }
-        
         collectionView.register(cellType: sample1_1CollectionViewCell.self)
         let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)
         cell.backgroundColor = UIColor.orange
@@ -127,6 +131,18 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
         
         return cell
+    }
+    
+    // Cell が選択された場合
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //選択されたとこと　currentが現在いるところ
+        let cellselect = indexPath.row
+        if(cellselect == current){
+            return
+        }else{
+           //選択されたページにする。
+            self.setViewControllers([pageControllergrop[cellselect]], direction: .forward, animated: false, completion: nil)
+        }
     }
 
 }

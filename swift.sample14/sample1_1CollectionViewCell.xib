@@ -18,20 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-H7-Wcl">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRw-XT-4gm">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <state key="normal" title="Button"/>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="aHi-H7-Wcl" secondAttribute="trailing" id="WfQ-ld-WwN"/>
-                <constraint firstItem="aHi-H7-Wcl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sjD-Hl-AAb"/>
-                <constraint firstAttribute="bottom" secondItem="aHi-H7-Wcl" secondAttribute="bottom" id="uHP-fE-WOf"/>
-                <constraint firstItem="aHi-H7-Wcl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vGJ-Uq-fXh"/>
+                <constraint firstAttribute="bottom" secondItem="VRw-XT-4gm" secondAttribute="bottom" id="CuP-Xr-XKt"/>
+                <constraint firstItem="VRw-XT-4gm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eWO-re-zAR"/>
+                <constraint firstItem="VRw-XT-4gm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hQA-D8-eKu"/>
+                <constraint firstAttribute="trailing" secondItem="VRw-XT-4gm" secondAttribute="trailing" id="q3i-73-oaU"/>
             </constraints>
             <connections>
-                <outlet property="cellbutton" destination="aHi-H7-Wcl" id="b2q-0C-Ydu"/>
+                <outlet property="celllabe" destination="VRw-XT-4gm" id="z4d-R3-bpX"/>
             </connections>
         </collectionViewCell>
     </objects>
