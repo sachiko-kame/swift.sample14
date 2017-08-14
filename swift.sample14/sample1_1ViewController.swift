@@ -142,7 +142,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         }
         collectionView.register(cellType: sample1_1CollectionViewCell.self)
         let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)
-        cell.backgroundColor = UIColor.orange
+        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor
         cell.config(text: "\(indexPath.dropFirst())")
     
         
@@ -156,15 +156,15 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
-        cell.backgroundColor = UIColor.darkGray
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
-        cell.backgroundColor = UIColor.orange // 元の色にする
-    }
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
+//        cell.backgroundColor = UIColor.darkGray
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath as IndexPath)!
+//        cell.backgroundColor = self.pageControllergrop[indexPath.row].view.backgroundColor //
+//    }
     
     func labeMove(ind:CGFloat){
     
