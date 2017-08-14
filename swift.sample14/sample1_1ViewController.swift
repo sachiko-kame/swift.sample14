@@ -53,7 +53,7 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         let rec = CGRect(x: 0.0, y: navheight + 30 , width:viewframewidth , height: labeheight + labeline)
         collectionView = UICollectionView(frame: rec, collectionViewLayout: flowLayout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        
+        collectionView.delaysContentTouches = false
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -114,6 +114,11 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        for vi in collectionView.subviews {
+            if let vi = vi as? UIScrollView {
+                vi.delaysContentTouches = false
+            }
+        }
         
         collectionView.register(cellType: sample1_1CollectionViewCell.self)
         let cell = collectionView.dequeueReusableCell(with: sample1_1CollectionViewCell.self, for: indexPath)

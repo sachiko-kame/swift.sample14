@@ -17,7 +17,9 @@ class sample1_1CollectionViewCell: UICollectionViewCell {
     }
     
     func config(text:String){
-        self.cellbutton.setTitle("🐤\(text)", for: .normal)
+        self.cellbutton.setTitle("🐢\(text)", for: .normal)
+//        self.cellbutton.setTitle("🐢\(text)", for: .highlighted)
+//        self.cellbutton.setTitleColor(UIColor.green, for: UIControlState.highlighted)
     }
 
 }
