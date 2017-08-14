@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.navigationController?.pushViewController(Sample1_0ViewController, animated: true)
                 print("0🐱")
             case 1:
-                let Sample1_1ViewController = sample1_1ViewController()
+                let Sample1_1ViewController = sample1_1ViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
                 self.navigationController?.pushViewController(Sample1_1ViewController, animated: true)
                 print("1🐱")
             case 2:
