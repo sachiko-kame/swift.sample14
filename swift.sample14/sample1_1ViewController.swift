@@ -92,12 +92,15 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func pageViewController(_ pageViewController:
         UIPageViewController, viewControllerBefore viewController:UIViewController) -> UIViewController? {
         let index:Int = pageControllergrop.index(of: viewController)!
+        let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
         current = pageControllergrop.index(of: viewController)!
         //1ページ何もしない
         switch index {
         case 0:
+            self.labeMove(ind:ind)
             return nil
         default:
+            self.labeMove(ind:ind)
             //2だったら1に、　3だったら2に
             return pageControllergrop[index-1]
         }
@@ -109,12 +112,15 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
         UIPageViewController, viewControllerAfter viewController: UIViewController) ->
         UIViewController? {
             let index:Int = pageControllergrop.index(of: viewController)!
+            let ind:CGFloat = CGFloat(pageControllergrop.index(of: viewController)!)
             current = pageControllergrop.index(of: viewController)!
             switch index {
             //最終ページ何もしない
             case pageControllergrop.count-1:
+                self.labeMove(ind:ind)
                 return nil
             default:
+                self.labeMove(ind:ind)
                 //最終ページでない場合進める
                 return pageControllergrop[index+1]
             }
@@ -147,6 +153,39 @@ class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //選択された所に遷移
         self.setViewControllers([pageControllergrop[indexPath.row]], direction: .forward, animated: false, completion: nil)
+    }
+    
+    func labeMove(ind:CGFloat){
+        switch ind {
+        case 0:
+            collectionView.contentOffset = CGPoint(
+                x: 0 ,
+                y: 0
+            )
+        case 1:
+            collectionView.contentOffset = CGPoint(
+                x: 0 ,
+                y: 0
+            )
+        case 2:
+            collectionView.contentOffset = CGPoint(
+                x:  viewframewidth / 3 * (ind - 1) ,
+                y: 0
+            )
+        case 3:
+            collectionView.contentOffset = CGPoint(
+                x:  viewframewidth / 3 * (ind - 1) ,
+                y: 0
+            )
+        case 4:
+            collectionView.contentOffset = CGPoint(
+                x:  viewframewidth / 3 * (ind - 2) ,
+                y: 0
+            )
+
+        default:
+            break
+        }
     }
 
 }
