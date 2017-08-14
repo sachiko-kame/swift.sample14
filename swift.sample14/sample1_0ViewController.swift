@@ -10,7 +10,6 @@ import UIKit
 // http://qiita.com/fumiyasac@github/items/1244abc8e3286c47ef50#_reference-e955e0f2dd71dd3b292c
 //テーブルビューに関係する定数
 struct PageSettings {
-    
     //ScrollViewのサイズに関するセッテイング
     static let menuScrollViewY : Int = 20
     static let menuScrollViewH : Int = 40
@@ -76,6 +75,7 @@ class sample1_0ViewController: UIViewController, UIPageViewControllerDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "haguruma"
         navHeight = self.navigationController?.navigationBar.frame.size.height
         
         menuScrollView = UIScrollView()

@@ -143,6 +143,33 @@
 			name = sampleTab;
 			sourceTree = "<group>";
 		};
+		847179681F4147DB00692C8F /* sample1_0 */ = {
+			isa = PBXGroup;
+			children = (
+				84FC43711F36EC80006D2388 /* sample1_0ViewController.swift */,
+				84FC43721F36EC80006D2388 /* sample1_0ViewController.xib */,
+			);
+			name = sample1_0;
+			sourceTree = "<group>";
+		};
+		847179691F4147F600692C8F /* sample1_1 */ = {
+			isa = PBXGroup;
+			children = (
+				84FC43751F36ECA4006D2388 /* sample1_1ViewController.swift */,
+				84FC43761F36ECA4006D2388 /* sample1_1ViewController.xib */,
+			);
+			name = sample1_1;
+			sourceTree = "<group>";
+		};
+		8471796A1F41481000692C8F /* sample1_2 */ = {
+			isa = PBXGroup;
+			children = (
+				84FC43791F36ECCA006D2388 /* sample1_2ViewController.swift */,
+				84FC437A1F36ECCA006D2388 /* sample1_2ViewController.xib */,
+			);
+			name = sample1_2;
+			sourceTree = "<group>";
+		};
 		8479C70F1EBB3F1300660156 = {
 			isa = PBXGroup;
 			children = (
@@ -207,12 +234,9 @@
 		84FC43701F36EBEE006D2388 /* sample1 */ = {
 			isa = PBXGroup;
 			children = (
-				84FC43711F36EC80006D2388 /* sample1_0ViewController.swift */,
-				84FC43721F36EC80006D2388 /* sample1_0ViewController.xib */,
-				84FC43751F36ECA4006D2388 /* sample1_1ViewController.swift */,
-				84FC43761F36ECA4006D2388 /* sample1_1ViewController.xib */,
-				84FC43791F36ECCA006D2388 /* sample1_2ViewController.swift */,
-				84FC437A1F36ECCA006D2388 /* sample1_2ViewController.xib */,
+				847179681F4147DB00692C8F /* sample1_0 */,
+				847179691F4147F600692C8F /* sample1_1 */,
+				8471796A1F41481000692C8F /* sample1_2 */,
 			);
 			name = sample1;
 			sourceTree = "<group>";
