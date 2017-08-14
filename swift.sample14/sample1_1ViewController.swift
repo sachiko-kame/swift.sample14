@@ -9,6 +9,7 @@
 import UIKit
 //参考http://mypace1981.doorblog.jp/archives/49614586.html
 //参考 http://swift-studying.com/blog/swift/?p=304 コレクションビュー
+//参考　http://qiita.com/tattn/items/bdce2a589912b489cceb
 class sample1_1ViewController: UIPageViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     var pageControllergrop = [UIViewController]()
