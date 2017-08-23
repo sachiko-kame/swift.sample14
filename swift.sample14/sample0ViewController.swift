@@ -11,7 +11,8 @@ import UIKit
 class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 //    private let myItems: NSArray = ["sample0🐰", "sampl1🐰", "sampl2🐰"]
-    private let myItems2: NSArray = ["Sample0🐢 \nSample0🐢", "Sample1🐢 \nSample1🐢", "Sample2🐢\nSample2🐢", "Sample3🐢 \nSample3🐢"]
+    private let myItems2: NSArray = ["Sample0🐢Sample0🐢", "Sample1🐢 \nSample1🐢", "Sample2🐢\nSample2🐢", "Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢Sample0🐢"]
+    
     private let SecItems: NSArray = ["セクション1", "セクション2"]
     
     /// 画像のファイル名
@@ -39,6 +40,9 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
         myTableView.dataSource = self
         
         myTableView.delegate = self
+        
+        myTableView.estimatedRowHeight = 80
+        myTableView.rowHeight = UITableViewAutomaticDimension
         
         let viewA = UIView()
         myTableView.tableFooterView = viewA
@@ -116,10 +120,14 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         default:
             
-            tableView.register(cellType: Sample2TableViewCell.self)
+            //下にぎょうはどっちか書けば大丈夫
+//            tableView.register(cellType: Sample2TableViewCell.self)
             tableView.register(cellTypes: [Sample2TableViewCell.self, Sample2TableViewCell.self])
             
             let cell = tableView.dequeueReusableCell(with: Sample2TableViewCell.self, for: indexPath)
+            cell.abSample.text = (myItems2[indexPath.row] as! String)
+            cell.abSample.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.layoutIfNeeded()
 
             return cell
         }
@@ -129,11 +137,16 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
      セルの高さを設定
      */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 0){
+            return 80
+        }
         switch indexPath.section {
         case 0:
             return 80
         default:
-            return 50
+            myTableView.estimatedRowHeight = 80
+            myTableView.rowHeight = UITableViewAutomaticDimension
+            return myTableView.rowHeight
         }
     }
     
