@@ -115,14 +115,12 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.myTitleLabel.attributedText = self.attribute1(text:cell.myTitleLabel.text!)
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-            cell.textLabel?.text = "\(myItems2[indexPath.row])"
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.font = UIFont(name:"HiraKakuProN-W3", size:18)
-            cell.textLabel?.sizeToFit()
-            cell.textLabel?.frame.size.height += ceil(abs((cell.textLabel?.font.descender)! * 2))
-//            cell.textLabel?.font = UIFont.systemFont(ofSize: 32)
-            cell.textLabel?.shadowColor = UIColor.gray
+            
+            tableView.register(cellType: Sample2TableViewCell.self)
+            tableView.register(cellTypes: [Sample2TableViewCell.self, Sample2TableViewCell.self])
+            
+            let cell = tableView.dequeueReusableCell(with: Sample2TableViewCell.self, for: indexPath)
+
             return cell
         }
     }
