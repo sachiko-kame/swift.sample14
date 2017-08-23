@@ -10,8 +10,7 @@ import UIKit
 
 class Sample2TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imgView: UIImageView!
-    
+     
     @IBOutlet weak var abSample: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
