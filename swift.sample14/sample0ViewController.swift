@@ -19,7 +19,7 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
     let imageNames = ["set.png", "set.png", "set.png"]
     
     /// 画像のタイトル
-    let imageTitles = ["sample0🐰\nSample0🐢", "sample1🐰\nSample0🐢", "sample2🐰\nSample0🐢"]
+    let imageTitles = ["sample0🐰\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaSample0🐢", "sample1🐰\nSample0🐢", "sample2🐰\nSample0🐢"]
     
     /// 画像の説明
     let imageDescriptions = [
@@ -41,8 +41,7 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         myTableView.delegate = self
         
-        myTableView.estimatedRowHeight = 80
-        myTableView.rowHeight = UITableViewAutomaticDimension
+    
         
         let viewA = UIView()
         myTableView.tableFooterView = viewA
@@ -116,7 +115,7 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCell(with: SampleTableViewCell.self, for: indexPath)
             cell.setCell(imageName: imageNames[indexPath.row], titleText: imageTitles[indexPath.row], descriptionText: imageDescriptions[indexPath.row])
             cell.myTitleLabel.numberOfLines = 0
-            cell.myTitleLabel.attributedText = self.attribute1(text:cell.myTitleLabel.text!)
+//            cell.myTitleLabel.attributedText = self.attribute1(text:cell.myTitleLabel.text!)
             return cell
         default:
             
@@ -137,16 +136,14 @@ class sample0ViewController: UIViewController, UITableViewDelegate, UITableViewD
      セルの高さを設定
      */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.section == 0){
-            return 80
-        }
         switch indexPath.section {
         case 0:
-            return 80
+            myTableView.estimatedRowHeight = 80
+            return UITableViewAutomaticDimension
         default:
             myTableView.estimatedRowHeight = 80
-            myTableView.rowHeight = UITableViewAutomaticDimension
-            return myTableView.rowHeight
+//            myTableView.rowHeight = UITableViewAutomaticDimension
+            return UITableViewAutomaticDimension
         }
     }
     

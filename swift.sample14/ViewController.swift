@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addBtn.action = #selector(ViewController.onClick)
         addBtn.target = self
         
-        self.navigationItem.leftBarButtonItem = addBtn
+//        self.navigationItem.leftBarButtonItem = addBtn
 
         // Do any additional setup after loading the view.
     }
